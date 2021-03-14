@@ -1,6 +1,7 @@
 package com.example.project1qa.selenium;
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -43,7 +44,7 @@ public class UpdateTest {
 		
 		WebElement enterArtist = this.driver.findElementById("newArtist");
 		
-		enterArtist.sendKeys("1975");
+		enterArtist.sendKeys("Sea Girls");
 		
 		WebElement enterCity = this.driver.findElementById("newCity");
 		
@@ -67,6 +68,10 @@ public class UpdateTest {
 		WebElement closeButton = this.driver.findElement(By.cssSelector("#myModal > div > div > div.modal-footer > button"));
 		
 		closeButton.click();
+		
+		WebElement card = this.driver.findElement(By.xpath("//*[@id=\"output\"]/div/div"));
+
+		Assertions.assertTrue(card.getText().contains("Sea Girls"));
 	}
 	
 	@AfterEach

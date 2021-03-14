@@ -1,19 +1,30 @@
 package com.example.project1qa.selenium;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 
 
 
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
+
+
+
 public class SeleniumTests {
 	
 	@LocalServerPort
@@ -21,10 +32,14 @@ public class SeleniumTests {
 	
 	private RemoteWebDriver driver;
 	
+	
+	
 	@BeforeEach
 	void setup() {
 		this.driver = new ChromeDriver();
 		this.driver.manage().window().maximize();
+		
+		
 	
 	}
 	
@@ -58,6 +73,10 @@ public class SeleniumTests {
 		
 		WebElement submitButton = this.driver.findElement(By.cssSelector("#gigEntryForm > button:nth-child(12)"));
 		submitButton.click();
+		
+		WebElement card = this.driver.findElement(By.xpath("//*[@id=\"output\"]/div/div"));
+
+		Assertions.assertTrue(card.getText().contains("Bristol"));
 		
 	}
 	
