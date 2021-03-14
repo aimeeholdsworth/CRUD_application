@@ -55,6 +55,8 @@ The front end for this project is built using HTML, CSS and JS. Some bootstrap e
 # Testing
 Two kinds of testing were completed during this project, these were Unit Testing using Junit and Mockito, Integration Testing using MockMVC and then Selenium for the front end. The testing tests the functionality for CREATE, READ, UPDATE and DELETE. The testing done using Mockito creates a mock repo to run the testing in so the proper repo won't be affected.
 
+Selenium was used to test the front end of the project, checking that all html elements were functioning and the user would be able to navigate around the site, entering data and clicking clickable elements for CREATE, READ, UPDATE and DELETE.
+
 # Front-End
 I wanted to create a sleek and user friendly design, the end result can be seen below. Using a muted colour palette and repetition of these colours the web page looks professional and linked as a whole. It focuses on usability making sure that the design is intuitive and users are able to easily navigate - for example, several ways of accessing the gig functionality, a clear nav bar, nothing overcrowded. It was decided that there didn't need to be an extra page/s for this project due to it's simplicity, instead the navbar jumps down to different sections of the site following a single page design.
 
